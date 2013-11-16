@@ -35,8 +35,6 @@ public class BinarizedTree {
 
     static void setup(String[] words) {
         Stack<node> miniTrees = new Stack<node>();
-
-
         node left = new node(null, null, words[0]);
         node right = new node(null, null, words[1]);
         node tree = new node(left, right, null);
@@ -79,21 +77,12 @@ public class BinarizedTree {
         if(topTree.right_child == null) {
             //bad case
             secondTree = miniTrees.pop();
-//            node thirdTree = miniTrees.pop();
-//            node intermediateTree = new node(thirdTree, secondTree, null);
-//            finalTree = new node(intermediateTree, topTree.left_child, null);
-//            miniTrees.push(finalTree);
             finalTree = new node(secondTree, topTree.left_child, null);
             miniTrees.push(finalTree);
-//            printContent(finalTree);
         } else {
             //good case
             finalTree = topTree;
             miniTrees.push(finalTree);
-//            secondTree = miniTrees.pop();
-//            finalTree = new node(topTree, secondTree, null);
-//            miniTrees.push(finalTree);
-//            printContent(finalTree);
         }
 
         return finalTree;
